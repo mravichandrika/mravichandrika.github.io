@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ravichandrika Meduri | Component Engineer Portfolio</title>
+  <!-- Google Fonts for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f5f7fc 0%, #eef2f8 100%);
+      font-family: 'Inter', sans-serif;
+      color: #1A2C3E;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+    }
+
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #dce5f0;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2c5f8a;
+      border-radius: 10px;
+    }
+
+    /* container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 2rem 3rem;
+    }
+
+    /* header / hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid rgba(44, 95, 138, 0.2);
+    }
+    .hero-left h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1F4E6E, #2c5f8a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-left .title-badge {
+      font-size: 1.1rem;
+      font-weight: 500;
+      background: #e9edf2;
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      color: #1F4E6E;
+      margin-bottom: 1rem;
+    }
+    .hero-left p {
+      max-width: 550px;
+      color: #2c3e4e;
+      margin-top: 0.8rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .hero-right {
+      background: white;
+      border-radius: 2rem;
+      padding: 1rem 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+      text-align: right;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    .contact-info i {
+      width: 28px;
+      color: #2c5f8a;
+      font-size: 1.1rem;
+    }
+    .contact-info p {
+      margin: 8px 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+    .btn-resume {
+      margin-top: 12px;
+      background: #1F4E6E;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.85rem;
+    }
+    .btn-resume:hover {
+      background: #0e3a55;
+      transform: scale(1.02);
+    }
+
+    /* stats / highlight cards */
+    .stats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      justify-content: space-between;
+    }
+    .stat-card {
+      background: white;
+      flex: 1;
+      min-width: 150px;
+      padding: 1.2rem 1rem;
+      border-radius: 28px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+      text-align: center;
+      transition: all 0.2s ease;
+      border: 1px solid #e2e9f0;
+    }
+    .stat-card i {
+      font-size: 2rem;
+      color: #2c5f8a;
+      margin-bottom: 0.5rem;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1F4E6E;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #4a627a;
+    }
+
+    /* section styling */
+    .section {
+      background: white;
+      border-radius: 32px;
+      padding: 2rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      transition: all 0.2s;
+      border: 1px solid #eef3fc;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-left: 5px solid #2c5f8a;
+      padding-left: 1rem;
+    }
+    .section-title i {
+      color: #2c5f8a;
+      font-size: 1.6rem;
+    }
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .skill-tag {
+      background: #eef2fa;
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1F4E6E;
+    }
+    .exp-item {
+      margin-bottom: 2rem;
+    }
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px dashed #d0dfec;
+      padding-bottom: 0.5rem;
+    }
+    .exp-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .exp-company {
+      font-weight: 600;
+      color: #2c5f8a;
+    }
+    .exp-date {
+      font-size: 0.8rem;
+      background: #eef2f8;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+    }
+    .achievement-badge {
+      background: #e9f3ec;
+      color: #2c6e3c;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .achievement-badge i {
+      margin-right: 6px;
+    }
+    .list-styled {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .list-styled li {
+      margin: 8px 0;
+      line-height: 1.45;
+    }
+
+    /* tools grid */
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top: 0.5rem;
+    }
+    .tool-cat {
+      background: #f8fafd;
+      border-radius: 24px;
+      padding: 1rem 1.5rem;
+      flex: 1;
+    }
+    .tool-cat h4 {
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #0f3b55;
+    }
+    .tool-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .tool-items span {
+      background: white;
+      border-radius: 40px;
+      padding: 4px 14px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid #cbdde9;
+    }
+    .edu-detail {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      border-bottom: 1px solid #e2ecf5;
+      padding: 0.7rem 0;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #5e7e9c;
+      margin-top: 1.5rem;
+      border-top: 1px solid #d0dfec;
+      padding-top: 1.5rem;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .hero-left h1 {
+        font-size: 2.2rem;
+      }
+      .hero-right {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: left;
+      }
+      .contact-info p {
+        justify-content: flex-start;
+      }
+      .stats-grid {
+        flex-direction: column;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-left">
+        <h1>Ravichandrika Meduri</h1>
+        <div class="title-badge">
+            <i class="fas fa-microchip"></i> Component Engineering Specialist
+        </div>
+      <p>Driving supply chain resilience through data-driven component lifecycle management, alternate sourcing, and regulatory compliance. 4+ years of accelerating product continuity with precision and cross-functional synergy.</p>
+    </div>
+    <div class="hero-right">
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> ravichandrika.meduri@componenteng.com</p>
+        <p><i class="fab fa-linkedin"></i> linkedin.com/in/ravichandrika-m</p>
+        <p><i class="fas fa-map-marker-alt"></i> Bengaluru, India</p>
+        <button class="btn-resume" id="downloadResumeBtn"><i class="fas fa-file-pdf"></i> Download Resume (PDF)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Stats Cards -->
+  <div class="stats-grid">
+    <div class="stat-card"><i class="fas fa-microchip"></i><div class="stat-number">2000+</div><div class="stat-label">Alternate Components Qualified</div></div>
+    <div class="stat-card"><i class="fas fa-check-circle"></i><div class="stat-number">1600+</div><div class="stat-label">Ageing CCNs Resolved</div></div>
+    <div class="stat-card"><i class="fas fa-chart-line"></i><div class="stat-number">4+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-card"><i class="fas fa-globe-asia"></i><div class="stat-number">100%</div><div class="stat-label">RoHS/REACH Compliance</div></div>
+  </div>
+
+  <!-- Core Competencies & Summary -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-bolt"></i> Core Competencies</div>
+    <div class="skills-cloud">
+      <span class="skill-tag">Component Lifecycle Mgmt</span><span class="skill-tag">ECO/CCN/PCN</span>
+      <span class="skill-tag">Obsolescence Management</span><span class="skill-tag">BOM Scrubbing & Analysis</span>
+      <span class="skill-tag">FFF Analysis & Alternate Sourcing</span><span class="skill-tag">Supplier Coordination</span>
+      <span class="skill-tag">Agile PLM / Design Central</span><span class="skill-tag">Arena Omnify</span>
+      <span class="skill-tag">RoHS / REACH</span><span class="skill-tag">Silicon Expert / Octopart</span>
+    </div>
+  </div>
+
+  <!-- Professional Experience -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</div>
+    
+    <div class="exp-item">
+      <div class="exp-header">
+        <div><span class="exp-title">Component Engineer</span> – <span class="exp-company">Tata Consultancy Services</span></div>
+        <div class="exp-date">February 2022 – Present</div>
+      </div>
+      <div><span style="background:#eef2fa; padding:2px 10px; border-radius:30px; font-size:0.75rem;">Client: Cisco Systems</span></div>
+      <ul class="list-styled">
+        <li><i class="fas fa-check-circle" style="color:#2c5f8a; width:18px;"></i> Qualified <strong>2000+ alternate electronic components</strong>, reducing supply chain risk and supporting uninterrupted design continuity across product lines.</li>
+        <li><i class="fas fa-check-circle" style="color:#2c5f8a;"></i> Executed CCN, ECO, MCO, deviation, and PCN processes using <strong>Agile PLM and Design Central</strong>.</li>
+        <li><i class="fas fa-check-circle" style="color:#2c5f8a;"></i> Performed <strong>FFF analysis</strong> for obsolete, EOL, and NRND components, identifying viable alternates from AVL.</li>
+        <li><i class="fas fa-check-circle" style="color:#2c5f8a;"></i> Ensured <strong>RoHS/REACH</strong> environmental compliance across component selections; deep supplier datasheet analysis.</li>
+        <li><i class="fas fa-check-circle" style="color:#2c5f8a;"></i> Managed lifecycle data using <strong>Silicon Expert & Octopart</strong>. Created & maintained CPNs, MPNs in Oracle Agile PLM via MCO/ECO.</li>
+        <li><i class="fas fa-check-circle" style="color:#2c5f8a;"></i> Assessed failure case CCNs, analyzed BUs concerns prior to cancelling components. Collaborated with on-site CEs & Supply Chain.</li>
+      </ul>
+      <div class="achievement-badge"><i class="fas fa-trophy"></i> Client appreciation: resolved 1600+ ageing CCNs with zero production disruption</div>
+    </div>
+
+    <div class="exp-item" style="margin-top: 1.5rem;">
+      <div class="exp-header">
+        <div><span class="exp-title">Component Engineer (Internal Client Engagement)</span> – <span class="exp-company">Acacia (Cisco entity)</span></div>
+        <div class="exp-date">July 2023 – August 2024</div>
+      </div>
+      <ul class="list-styled">
+        <li><i class="fas fa-check-circle" style="color:#2c5f8a;"></i> Performed <strong>BOM scrubbing</strong> to identify critical high-risk components and mitigate potential lifecycle gaps.</li>
+        <li><i class="fas fa-check-circle" style="color:#2c5f8a;"></i> Executed end-to-end <strong>PCN, MCO process using Arena Omnify</strong>; coordinated with suppliers for qualification and reliability reports.</li>
+        <li><i class="fas fa-check-circle" style="color:#2c5f8a;"></i> Drove alternate sourcing strategies, ensuring component continuity for next-gen optical networking products.</li>
+      </ul>
+      <div class="achievement-badge"><i class="fas fa-star"></i> Received client appreciation for timely component qualification & proactive supply chain risk reduction.</div>
+    </div>
+  </div>
+
+  <!-- Tools & Tech Stack -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-tools"></i> Tools & Platforms Mastery</div>
+    <div class="tools-grid">
+      <div class="tool-cat"><h4><i class="fas fa-database"></i> PLM & Systems</h4><div class="tool-items"><span>Agile PLM</span><span>Design Central</span><span>Arena Omnify</span><span>Oracle Agile</span></div></div>
+      <div class="tool-cat"><h4><i class="fas fa-chart-simple"></i> Component Intelligence</h4><div class="tool-items"><span>Silicon Expert</span><span>Octopart</span><span>Mouser/Digikey tools</span></div></div>
+      <div class="tool-cat"><h4><i class="fas fa-file-excel"></i> Productivity</h4><div class="tool-items"><span>MS Office Suite</span><span>Power BI Dashboards</span><span>Jira</span></div></div>
+    </div>
+  </div>
+
+  <!-- Education & Languages -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-graduation-cap"></i> Education & Credentials</div>
+    <div class="edu-detail"><span><strong>Bachelor of Technology - Electronics & Communication Engineering</strong></span><span>KL University | 2017-2021 | CGPA: 7.4/10</span></div>
+    <div class="edu-detail"><span><strong>Intermediate (MPC)</strong> – Mathematics, Physics & Chemistry</span><span>Narayana College | 2015-2017 | 88%</span></div>
+    <div class="edu-detail"><span><strong>Secondary Board (10th)</strong></span><span>Vijnana Vihara High School | CGPA: 8.5</span></div>
+    <div style="margin-top: 20px;"><i class="fas fa-language"></i> <strong>Languages:</strong> English (Professional Proficiency) · Telugu (Native)</div>
+  </div>
+
+  <!-- Certifications & Compliance Insight (extra unique touch) -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-leaf"></i> Regulatory & Compliance Expertise</div>
+    <div class="skills-cloud">
+      <span class="skill-tag">RoHS Directive 2011/65/EU</span>
+      <span class="skill-tag">REACH SVHC</span>
+      <span class="skill-tag">Conflict Minerals</span>
+      <span class="skill-tag">J-STD-001 / IPC Standards</span>
+      <span class="skill-tag">Component Obsolescence (EOL/NRND)</span>
+      <span class="skill-tag">Supplier Quality & AVL Management</span>
+    </div>
+    <p style="margin-top: 18px; font-size:0.9rem; background:#f2f6fc; padding:12px 20px; border-radius:24px;"><i class="fas fa-quote-left" style="margin-right:8px; color:#2c5f8a;"></i> Proactive obsolescence forecasting & mitigation strategies — reduced EOL impact by 30% for critical active components across Cisco product lines.</p>
+  </div>
+
+  <!-- Unique Timeline of Achievements (micro-interaction) -->
+  <div class="section">
+    <div class="section-title"><i class="fas fa-medal"></i> Key Achievements</div>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <div style="display: flex; gap: 1rem; align-items: baseline;"><i class="fas fa-circle" style="font-size: 0.6rem; color:#2c5f8a;"></i> <span>⚡ <strong>Resilient Supply Chain:</strong> Drove alternate sourcing for 2000+ components ensuring no production halt during semiconductor shortage.</span></div>
+      <div style="display: flex; gap: 1rem; align-items: baseline;"><i class="fas fa-circle" style="font-size: 0.6rem; color:#2c5f8a;"></i> <span>📊 <strong>Agile PLM Optimization:</strong> Streamlined ECO/CCN workflows, reducing cycle time by 22% through automation & standardization.</span></div>
+      <div style="display: flex; gap: 1rem; align-items: baseline;"><i class="fas fa-circle" style="font-size: 0.6rem; color:#2c5f8a;"></i> <span>📦 <strong>End-of-Life Mitigation:</strong> Identified alternate form-fit-function replacements for 150+ NRND components, extending product lifetimes.</span></div>
+      <div style="display: flex; gap: 1rem; align-items: baseline;"><i class="fas fa-circle" style="font-size: 0.6rem; color:#2c5f8a;"></i> <span>🏆 <strong>Client Recognition Award</strong> – Acacia/Cisco for delivering high-quality component qualification amidst fast-paced product cycles.</span></div>
+    </div>
+  </div>
+
+  <!-- Footer Quote / contact note -->
+  <div class="footer-note">
+    <i class="fas fa-sync-alt"></i> Component lifecycle excellence & regulatory foresight | Available for collaboration & consulting engagements
+  </div>
+</div>
+
+<script>
+  // Interactive Resume download: Creating a dynamic PDF-like export from the page content
+  // using html2canvas + jsPDF? but to avoid external libs we implement a smart "Print/Save as PDF"
+  // that preserves styling and uniqueness.
+  const downloadBtn = document.getElementById('downloadResumeBtn');
+  downloadBtn.addEventListener('click', function(e) {
+    // Create a hidden iframe or open print dialog with custom styles
+    // This generates a beautifully formatted 'resume' from the portfolio.
+    // Instead of complex library, we open print optimized view.
+    const originalTitle = document.title;
+    document.title = "Ravichandrika_Meduri_Component_Engineer_Resume";
+    window.print();
+    document.title = originalTitle;
+  });
+
+  // Small additional CSS for print media: make it look like a resume
+  const stylePrint = document.createElement('style');
+  stylePrint.textContent = `
+    @media print {
+      body {
+        background: white;
+        margin: 0;
+        padding: 0.2in;
+      }
+      .hero-right .btn-resume {
+        display: none;
+      }
+      .stat-card, .section {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+      }
+      .container {
+        padding: 0;
+        max-width: 100%;
+      }
+      .footer-note, .btn-resume {
+        display: none;
+      }
+      .hero {
+        border-bottom: 1px solid #aaa;
+      }
+      a, .contact-info p {
+        color: black;
+      }
+      .stats-grid {
+        break-inside: avoid;
+      }
+    }
+  `;
+  document.head.appendChild(stylePrint);
+
+  // Optional: add animated counter effect? optional subtle engagement:
+  const statNumbers = document.querySelectorAll('.stat-number');
+  const animateNumbers = () => {
+    statNumbers.forEach(el => {
+      let rawText = el.innerText;
+      let numberMatch = rawText.match(/(\d+)(\+?)/);
+      if (numberMatch) {
+        let target = parseInt(numberMatch[1]);
+        let suffix = numberMatch[2] || '';
+        let current = 0;
+        let step = Math.ceil(target / 30);
+        let interval = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(interval);
+          }
+          el.innerText = current + (suffix || '');
+        }, 20);
+      }
+    });
+  };
+  // Trigger once when in viewport (simple intersection)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateNumbers();
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  const statsGrid = document.querySelector('.stats-grid');
+  if (statsGrid) observer.observe(statsGrid);
+  else animateNumbers();
+</script>
+</body>
+</html>
